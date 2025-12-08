@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Homework Hero</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #111; color: #fff; text-align: center; padding: 50px; }
+        .container { max-width: 600px; margin: auto; }
+        h1 { font-size: 3rem; background: -webkit-linear-gradient(#eee, #333); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .box { background: #222; padding: 20px; border-radius: 12px; border: 1px solid #333; margin-top: 20px; }
+        input, button { width: 100%; padding: 15px; margin: 10px 0; border-radius: 8px; border: none; font-size: 1rem; }
+        input { background: #333; color: white; }
+        button { background: #007bff; color: white; cursor: pointer; font-weight: bold; transition: 0.2s; }
+        button:hover { background: #0056b3; transform: scale(1.02); }
+        .story { text-align: left; line-height: 1.6; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Homework Hero</h1>
+        <p>Turn homework into an epic saga.</p>
+
+        <form action="/" method="post" enctype="multipart/form-data" class="box">
+            <input type="text" name="theme" placeholder="Enter a Theme (e.g. Ninjas, Frozen)" required>
+            <input type="file" name="file" accept="image/*" required>
+            <button type="submit">✨ Generate Adventure</button>
+        </form>
+
+        {% if story %}
+        <div class="box story">
+            <h3>📜 Your Adventure:</h3>
+            <p>{{ story }}</p>
+            <hr>
+            <p style="color: #4caf50;"><strong>Challenge:</strong> {{ challenge }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
